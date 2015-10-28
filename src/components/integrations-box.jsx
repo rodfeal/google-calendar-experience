@@ -1,25 +1,24 @@
 var React = require('react');
-var jQuery = require('jquery');
+var request = require('superagent');
 
 var IntegrationsBox = React.createClass({
   getIntegrationsFromAPI: function(url) {
-    jQuery.ajax({
-      url: url,
-      dataType: 'json',
-      cache: 'false',
-      success: function(data) {
-        this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-     });
+    // TODO: call API and set response to state
+    var response = request.get(url).end(function(err, res) {
+      if (err) {
+        console.error(endpoint, err.stack);
+      } else {
+        console.log("É nozes");
+        this.setState({data: res.body});
+      }
+    }.bind(this));
   },
   getInitialState: function() {
     return {data: []};
   },
   componentDidMount: function() {
-    this.getIntegrationsFromAPI();
+    var url = "http://localhost:8000/mocks/integrations.json"
+    this.getIntegrationsFromAPI(url);
   },
   render: function() {
     var integrations = this.state.data.map(function(integration) {
