@@ -1,0 +1,8 @@
+# Backup files
+*~
+*.swp
+
+node_modules/
+main.js
+style.css
+
