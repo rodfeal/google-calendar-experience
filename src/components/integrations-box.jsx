@@ -1,5 +1,6 @@
 var React = require('react');
 var request = require('superagent');
+var Integration = require('./integration');
 
 var IntegrationsBox = React.createClass({
   getIntegrationsFromAPI: function(url) {
@@ -8,7 +9,6 @@ var IntegrationsBox = React.createClass({
       if (err) {
         console.error(endpoint, err.stack);
       } else {
-        console.log("É nozes");
         this.setState({data: res.body});
       }
     }.bind(this));
@@ -23,9 +23,7 @@ var IntegrationsBox = React.createClass({
   render: function() {
     var integrations = this.state.data.map(function(integration) {
       return (
-        <div className="integration">
-          {integration.name}
-        </div>
+        <Integration name={integration.name} />
       );
     });
     return(
