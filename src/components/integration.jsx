@@ -19,7 +19,14 @@ var Integration = React.createClass({
     var authorizeDiv = document.getElementById('authorize-div');
     if (authResult && !authResult.error) {
       console.log(authResult);
-      // TODO: Call api to save credentials
+      url = "http://localhost:3000/credentials";
+      console.log("Post to " + url)
+      request.post(url).send(authResult).end(function(err, res){
+        console.log("err")
+        console.log(err)
+        console.log("res")
+        console.log(res)
+      });
     } else {
       console.error(authResult.error || "Failed to authorize application");
     }
