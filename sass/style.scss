@@ -1,3 +1,44 @@
-.black {
-  color: black
+.panel {
+  margin: 30px 300px 0px 300px;
+  background-color: #fafafa;
+  .integration-title {
+   font:  bold 25px Arial;
+   color: #000;
+   margin-top: 10px;
+   margin-left: 15px;
+  }
+  .panel-body {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+}
+
+.list-group-item {
+  padding: 4px 15px 10px 15px;
+  border-color: #AAA;
+}
+
+.odd {
+  background-color: #eee;
+}
+
+
+.integration-button {
+  float: right;
+  border: 0;
+  background: #0087cc;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 #006599;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 1px 5px;
+  transition: all .1s linear;
+}
+
+.integration-button:active {
+  box-shadow: 0 1.5px 0 #006599;
+  transform: translateY(3px);
 }
