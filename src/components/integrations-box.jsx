@@ -21,15 +21,30 @@ var IntegrationsBox = React.createClass({
     this.getIntegrationsFromAPI(url);
   },
   render: function() {
+    var count = 0;
     var integrations = this.state.data.map(function(integration) {
-      return (
-        <Integration display_name={integration.display_name} />
-      );
+      count++;
+      if(count % 2 == 0 ) {
+        return (
+          <Integration className='' display_name={integration.display_name} />
+        );
+      }
+      else  {
+        return (
+          <Integration className='odd' display_name={integration.display_name} />
+        );   
+      }
     });
     return(
-      <div className="integrationsBox">
-        <h1>Integrations</h1>
-        { integrations }
+      <div className="panel panel-default">
+        <p className="integration-title">Integrations</p>
+        <div className="panel-body">
+          <ul className="list-group">
+              {integrations}    
+          </ul>  
+        </div>
+
+
       </div>
     );
   }

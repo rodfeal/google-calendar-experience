@@ -32,11 +32,14 @@ var Integration = React.createClass({
     }
   },
   render: function() {
+    console.log(this.props.className);
     return(
-      <div className="integration">
+      <li className={'list-group-item ' + this.props.className}>
         { this.props.display_name }
-        <a type="button" className="btn btn-primary integrationBt" onClick={this.handleAuthClick}>Configurar</a>
-      </div>
+        <button className="integration-button" onClick={this.handleAuthClick}> 
+          Configurar
+        </button>
+      </li>
     );
   }
 });
