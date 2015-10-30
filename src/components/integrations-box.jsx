@@ -17,7 +17,7 @@ var IntegrationsBox = React.createClass({
     return {data: []};
   },
   componentDidMount: function() {
-    var url = "http://localhost:8000/mocks/integrations.json"
+    var url = "http://localhost:3000/integrations"
     this.getIntegrationsFromAPI(url);
   },
   render: function() {

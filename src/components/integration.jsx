@@ -18,21 +18,11 @@ var Integration = React.createClass({
   handleAuthResult: function(authResult) {
     var authorizeDiv = document.getElementById('authorize-div');
     if (authResult && !authResult.error) {
-      // Hide auth UI, then load client library.
-      request.post('localhost:8003/oauth').send('{}');
       console.log(authResult);
-      this.loadCalendarApi();
+      // TODO: Call api to save credentials
     } else {
-      // Show auth UI, allowing the user to initiate authorization by
-      // clicking authorize button.
-      console.log("no");
+      console.error(authResult.error || "Failed to authorize application");
     }
-  },
-  loadCalendarApi: function() {
-    gapi.client.load('calendar', 'v3', listUpcomingEvents);
-  },
-  listUpcomingEvents: function() {
-    
   },
   render: function() {
     return(
