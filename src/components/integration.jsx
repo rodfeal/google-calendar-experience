@@ -34,7 +34,7 @@ var Integration = React.createClass({
   render: function() {
     return(
       <div className="integration">
-        { this.props.name }
+        { this.props.display_name }
         <a type="button" className="btn btn-primary integrationBt" onClick={this.handleAuthClick}>Configurar</a>
       </div>
     );

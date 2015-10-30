@@ -23,7 +23,7 @@ var IntegrationsBox = React.createClass({
   render: function() {
     var integrations = this.state.data.map(function(integration) {
       return (
-        <Integration name={integration.name} />
+        <Integration display_name={integration.display_name} />
       );
     });
     return(
